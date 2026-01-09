@@ -33,3 +33,8 @@ export function addJoke(joke) {
 
     return true;
 }
+
+function hola()
+{
+    console.log("Hola mundo");
+}

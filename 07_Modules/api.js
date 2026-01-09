@@ -16,3 +16,7 @@ export function fetchJoke(element) {
             element.textContent = "Error: Could not load a joke from the API.";
         });
 }
+
+function hola() {
+    console.log("Hola");
+}

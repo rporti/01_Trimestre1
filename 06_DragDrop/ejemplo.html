@@ -33,6 +33,17 @@
     }
   </style>
   <script>
+    //array de objetos con las imágenes y un texto asociado para cada una
+    array_objetos=[{"imagen":"icono.jpg","texto":"Icono"},
+                   {"imagen":"icono2.jpg","texto":"Icono 2"},
+                   {"imagen":"icono3.jpg","texto":"Icono 3"}
+                  ];
+    //array de categorías para los objetos
+    matriz_categorias=[["icono","icono 2"],
+                      ["icono 3"]
+                     ];
+
+
     // Permite que un div sea un destino válido para soltar
     function allowDrop(ev) {
       ev.preventDefault(); // Previene el comportamiento por defecto (p. ej. abrir la imagen)
@@ -47,10 +58,8 @@
       ev.dataTransfer.setData("text", ev.target.id);
     }
 
-    // Función que se ejecuta al soltar la imagen sobre un div
+    // Función que se ejecuta al soltar la imagen 
     function soltar(ev) {
-      ev.preventDefault(); // Previene el comportamiento por defecto
-
       // Recupera la información guardada en el drag
       // Debe ser el mismo tipo que se usó en setData ("text")
       var data = ev.dataTransfer.getData("text"); // en data tengo el id del elemento arrastrado
@@ -74,6 +83,8 @@
   <footer>
     <!-- Imagen que se puede arrastrar -->
     <img id="drag1" src="icono.jpg" draggable="true" ondragstart="drag(event)">
+    <img id="drag1" src="icono2.jpg" draggable="true" ondragstart="drag(event)">
+
   </footer>
 </body>
 </html>
