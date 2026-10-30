@@ -4,10 +4,13 @@ function calculate() {
     document.getElementById("op2")
   ];
 
+  const op11 = document.getElementById("op1").value;
+  
   let values = [];
   for (let input of inputs) {
     if (input.value.trim() === "") {
-      alert("All fields must be filled.");
+      window.alert("All fields must be filled.");
+      console.log("All fields must be filled.");
       return;
     }
     if (isNaN(input.value)) {

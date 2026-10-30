@@ -1,0 +1,12 @@
+# Ignore private Pokémon exercise
+03_API_REST/01_apirestpokemon/apirestfindpokemon.js
+03_API_REST/01_apirestpokemon/practica_apirestfindpokemon.html
+
+#Importante: si se habia añadido esos archivos al seguimiento de Git, ejecuta:
+#git rm --cached 03_API_REST/01_apirestpokemon/apirestfindpokemon.js
+#git rm --cached 03_API_REST/01_apirestpokemon/practica_apirestfindpokemon.html
+
+#Después:
+#git add .
+#git commit -m "Update and reorganization"
+#git push

@@ -1,6 +1,9 @@
-// Obtenemos los datos de todos los pokemon 
+// to store the next url
+let siguienteUrl = '';
+
 // Fetch the data of all Pokémon from the API
-fetch('https://pokeapi.co/api/v2/pokemon')
+function cargarAPI(url){
+fetch(url)
     .then(response => {
         // Check if the HTTP response is OK (status in the range 200-299)
         if (!response.ok) {
@@ -11,6 +14,10 @@ fetch('https://pokeapi.co/api/v2/pokemon')
         return response.json();
     })
     .then(json => {
+        //In the json code there is a field called next which keep the next url to visit
+        console.log(json);
+        siguienteUrl = json.next; 
+
         // Once the JSON is parsed, call the function to process and display Pokémon
         printPokemons(json.results);
     })
@@ -21,6 +28,18 @@ fetch('https://pokeapi.co/api/v2/pokemon')
         console.error(error); // Log the error details in the console for debugging
         alert("Unable to load Pokémon data."); // Show a user-friendly message
     });
+}
+
+//funcion ( url)
+cargarAPI('https://pokeapi.co/api/v2/pokemon');
+
+// Función que ejecuta el botón "Siguiente"
+function siguientePkm() {
+    if (siguienteUrl!='') {
+        cargarAPI(siguienteUrl);
+    }
+}
+
 
 /*
 Additional notes:
@@ -39,7 +58,7 @@ function printPokemons(pokemons) {
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonId(pokemon.url)}.png"/>
     <span>Nº.${getPokemonId(pokemon.url)}</span>
     <h2>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
-    </card>
+    </div>
   `;
   });
 }
